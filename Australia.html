@@ -20,17 +20,12 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            font-size: 16px;
+            font-size: 15px;
             line-height: 1.5;
         }
 
         /* Add custom CSS styles here */
-        .jumbotron {
-            background-color: #f8f9fa;
-            text-align: center;
-            padding: 3rem;
-            margin-bottom: 0;
-        }
+
 
         .card {
             margin-bottom: 10px;
@@ -58,14 +53,6 @@
             text-align: start;
         }
 
-
-        .card-text {
-            text-align: start;
-            font-size: 14px;
-
-            color: rgb(255, 0, 119);
-        }
-
         .aside-nav-title {
             background-color: #007bff;
             color: #fff;
@@ -77,11 +64,22 @@
 
         }
 
+        .home {
+            font-size: 12px;
+            background-color: #f7f6f6;
+        }
+
         .article {
             margin-bottom: 10px;
             margin: 10px;
             margin-top: 10px;
 
+        }
+
+        .scholarship-link {
+            color: black;
+            text-decoration: underline;
+            font-weight: normal;
         }
 
         .btn-sm {
@@ -91,7 +89,8 @@
         time {
             font-size: 14px;
             color: #999;
-            margin-bottom: 5px;
+
+            font-variant-caps: all-petite-caps;
         }
 
         .home {
@@ -103,16 +102,9 @@
             border-radius: 7px;
         }
 
-        .scholarship-link {
-            color: black;
-            text-decoration: underline;
-            font-weight: bold;
-        }
-
-        a:hover{
+        a:hover {
             color: red;
         }
-
 
         footer {
             background-color: #007bff;
@@ -120,12 +112,101 @@
             text-align: center;
             padding: 1rem;
         }
-        .home{
+
+        .home {
             padding-left: 10px;
             font-size: 13px;
+
         }
-        :hover.hom{
+
+        :hover.hom {
+
             color: black;
+        }
+
+        :hover.card-text {
+            color: red;
+        }
+
+        .card-body {
+            display: flex;
+            align-items: center;
+        }
+
+        .card-text {
+            color: black;
+            font-size: 12px;
+        }
+
+        .card-body img {
+            width: 150px;
+            /* adjust size as needed */
+            height: 100px;
+        }
+        .card-body2 img {
+            width: 100px;
+            /* adjust size as needed */
+            height: 50px;
+
+
+        }
+        .card-body2 {
+           
+            font-family: Arial, sans-serif;
+           
+
+        }
+
+        .card-body div {
+            flex-grow: 1;
+        }
+       
+
+        .card-body time {
+            font-size: 14;
+            /* default font size */
+        }
+
+        .card-body a {
+            font-size: 20px;
+            /* default font size */
+        }
+
+        @media (max-width: 767px) {
+
+            /* styles for devices with a maximum width of 767px, such as smartphones */
+            .card-body img {
+                width: 100px;
+                height: 70px;
+            }
+
+            .card-body time {
+                font-size: 14px;
+                /* reduce font size for mobile devices */
+            }
+
+            .card-body a {
+                font-size: 15px;
+                /* reduce font size for mobile devices */
+            }
+            .card-body2 img {
+                width: 100px;
+                height: 70px;
+                margin: 10px;
+                font-size: 14px;
+
+
+        }
+        .card-body2 p {
+                font-size: 15px;
+                
+                /* reduce font size for mobile devices */
+            }
+        
+        }
+
+        .aside {
+            display: block;
         }
     </style>
 </head>
@@ -174,7 +255,7 @@
                 <div class="col-lg-9 col-md-8 col-sm-12">
 
                     <article>
-                        <h4 class="aside-nav-title">Scholarships in Australia</h4>
+                        <h4 class="aside-nav-title">Scholarships in United States</h4>
                         <div class="card">
                             <div class="card-body d-flex align-items-center">
                                 <img src="/images/1.png" class="mr-3" alt="Image">
@@ -195,8 +276,9 @@
                                 <div>
                                     <time datetime="2023-04-12T15:30:00+05:30">April 12, 2023</time>
                                     <hr>
-                                    <p><a href="#" class="scholarship-link">2023 New York University Wagner Merit-Based
-                                            Scholarship Grants in the United States</a></p>
+
+                                    <a href="#" class="scholarship-link">Scholarships For
+                                        International Students In USA</a>
 
 
                                 </div>
@@ -208,8 +290,9 @@
                                 <div>
                                     <time datetime="2023-04-12T15:30:00+05:30">April 12, 2023</time>
                                     <hr>
-                                    <p><a href="#" class="scholarship-link">2023 New York University Wagner Merit-Based
-                                        Scholarship Grants in the United States</a></p>
+
+                                    <a href="#" class="scholarship-link">Scholarships For
+                                        International Students In USA</a>
 
 
                                 </div>
@@ -221,8 +304,9 @@
                                 <div>
                                     <time datetime="2023-04-12T15:30:00+05:30">April 12, 2023</time>
                                     <hr>
-                                    <p><a href="#" class="scholarship-link">2023 New York University Wagner Merit-Based
-                                        Scholarship Grants in the United States</a></p>
+
+                                    <a href="#" class="scholarship-link">Scholarships For
+                                        International Students In USA</a>
 
 
                                 </div>
@@ -234,8 +318,9 @@
                                 <div>
                                     <time datetime="2023-04-12T15:30:00+05:30">April 12, 2023</time>
                                     <hr>
-                                    <p><a href="#" class="scholarship-link">2023 New York University Wagner Merit-Based
-                                        Scholarship Grants in the United States</a></p>
+
+                                    <a href="#" class="scholarship-link">Scholarships For
+                                        International Students In USA</a>
 
 
                                 </div>
@@ -244,46 +329,49 @@
 
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-12">
-                    <aside class="card">
-                        <h5 class="aside-nav-title">Top Listings</h5>
+                    <aside>
+                        <h5 class="aside-nav-title">Recent Scholarships</h5>
                         <nav>
                             <div class="card">
+                            <div class="card-body2 d-flex align-items-center">
+                                <img src="/images/1.png" class="mr-3" alt="Image">
                                 <a href="https://www.example.com/scholarships-for-international-students-in-usa">
                                     <p class="card-text">10 Most Affordable/Tuition Free Universities in USA</p>
                                 
                                 </a>
                             </div>
+                        </div>
 
-                            <div class="card">
+                        <div class="card">
+                            <div class="card-body2 d-flex align-items-center">
+                                <img src="/images/1.png" class="mr-3" alt="Image">
                                 <a href="https://www.example.com/scholarships-for-international-students-in-usa">
-                                    <p class="card-text">Top 15 Fully Funded Scholarships in UK for International
-                                        Students</p>
-                                       
+                                    <p class="card-text">10 Most Affordable/Tuition Free Universities in USA</p>
+                                
                                 </a>
                             </div>
+                        </div>
 
-                            <div class="card">
+                        <div class="card">
+                            <div class="card-body2 d-flex align-items-center">
+                                <img src="/images/1.png" class="mr-3" alt="Image">
                                 <a href="https://www.example.com/scholarships-for-international-students-in-usa">
-                                    <p class="card-text">Top International Scholarships for Women to Study Abroad
-                                        2023/24 [Fully Funded]</p>
-                                        
+                                    <p class="card-text">10 Most Affordable/Tuition Free Universities in USA</p>
+                                
                                 </a>
                             </div>
+                        </div>
 
-                            <div class="card">
+                        <div class="card">
+                            <div class="card-body2 d-flex align-items-center">
+                                <img src="/images/1.png" class="mr-3" alt="Image">
                                 <a href="https://www.example.com/scholarships-for-international-students-in-usa">
-                                    <p class="card-text">Top 10 Scholarships for Students from Low-Income Countries</p>
-                                   
+                                    <p class="card-text">10 Most Affordable/Tuition Free Universities in USA</p>
+                                
                                 </a>
                             </div>
+                        </div>
 
-
-                            <div class="card">
-                                <a href="https://www.example.com/scholarships-for-international-students-in-usa">
-                                    <p class="card-text">Top 20 African Schools for Postgraduate Research Studies</p>
-                                   
-                                </a>
-                            </div>
                         </nav>
                     </aside>
                 </div>
