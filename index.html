@@ -217,6 +217,19 @@
 
                 /* reduce font size for mobile devices */
             }
+            #backtotop {
+                bottom: 10px;
+                right: 10px;
+                width: 40px;
+                height: 40px;
+            }
+
+            .fa-angle-up {
+                font-size: 20px;
+            }
+            #backtotop.show {
+                display: block;
+            }
 
 
         }
@@ -263,26 +276,8 @@
             height: 100%;
         }
 
-        /* Show the button when the user scrolls down 20px from the top of the document */
-        @media (min-width: 768px) {
-            #backtotop.show {
-                display: block;
-            }
-        }
-
-        /* Adjust the position of the button for mobile devices */
-        @media (max-width: 767px) {
-            #backtotop {
-                bottom: 10px;
-                right: 10px;
-                width: 40px;
-                height: 40px;
-            }
-
-            .fa-angle-up {
-                font-size: 20px;
-            }
-        }
+     
+       
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
@@ -299,7 +294,7 @@
             // Scroll to top when the user clicks the button
             // Scroll to top when the user clicks the button
             $('#backtotop').click(function () {
-                $('html, body').animate({
+                $('html, body,cobtainer').animate({
                     scrollTop: 0
                 }, 800);
                 return false;
