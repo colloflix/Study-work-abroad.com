@@ -209,6 +209,10 @@
 
             }
 
+            .date {
+                font-size: 8px;
+            }
+
             .card-body2 p {
                 font-size: 14px;
                 color: black;
@@ -217,6 +221,7 @@
 
                 /* reduce font size for mobile devices */
             }
+
             #backtotop {
                 bottom: 10px;
                 right: 10px;
@@ -227,6 +232,7 @@
             .fa-angle-up {
                 font-size: 20px;
             }
+
             #backtotop.show {
                 display: block;
             }
@@ -242,7 +248,25 @@
             text-transform: capitalize;
         }
 
-        #backtotop {
+        #cookie-popup {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background-color: #f1f1f1;
+            text-align: center;
+        }
+        #cookie-popup button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        #back-to-top {
             position: fixed;
             bottom: 20px;
             right: 20px;
@@ -251,7 +275,7 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+            box-shadow: 0px 2px 5px rgba(124, 164, 202, 0.3);
             cursor: pointer;
             display: none;
             display: flex;
@@ -260,55 +284,61 @@
             z-index: 99;
         }
 
-        #backtotop:hover {
+        #back-to-top:hover {
             background-color: #3d5b79;
         }
 
         .fa-angle-up {
-            font-size: 24px;
+            font-size: 20px;
         }
 
         /* Position the up arrow in the center of the circle */
-        #backtotop i {
+        #back-to-top i {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100%;
         }
-
-     
-       
+        
     </style>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            // Show the button when the user scrolls down 20px from the top of the document
-            $(window).scroll(function () {
-                if ($(this).scrollTop() > 20) {
-                    $('#backtotop').addClass('show');
-                } else {
-                    $('#backtotop').removeClass('show');
-                }
-            });
+     <script>
+        
+        function acceptCookies() {
+            document.cookie = "cookieConsent=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+            document.getElementById("cookie-popup").style.display = "none";
+        }
 
-            // Scroll to top when the user clicks the button
-            // Scroll to top when the user clicks the button
-            $('#backtotop').click(function () {
-                $('html, body,cobtainer').animate({
-                    scrollTop: 0
-                }, 800);
-                return false;
-            });
+        function checkCookies() {
+            if (document.cookie.indexOf("cookieConsent=true") === -1) {
+                document.getElementById("cookie-popup").style.display = "block";
+            }
+        }
 
-        });
+        window.onload = checkCookies; 
+
+        // Show the back-to-top button when the user scrolls down
+		window.onscroll = function() {
+			scrollFunction();
+		};
+
+		function scrollFunction() {
+			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+				document.getElementById("back-to-top").style.display = "block";
+			} else {
+				document.getElementById("back-to-top").style.display = "none";
+			}
+		}
+
+		// Scroll to the top of the page when the user clicks the button
+		function scrollToTop() {
+			document.body.scrollTop = 0;
+			document.documentElement.scrollTop = 0;
+		}
+
     </script>
 </head>
 
 <body>
-
-    <div id="backtotop">
-        <i class="fa fa-angle-up"></i>
-    </div>
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
@@ -491,6 +521,14 @@
         </div>
         </div>
 
+        <div id="back-to-top" onclick="scrollToTop()"><i class="fa fa-angle-up"></i></div>
+        
+
+        <div id="cookie-popup">
+            <p>We use cookies to enhance your experience on our website. By continuing to use our website, you consent
+                to our use of cookies.</p>
+            <button onclick="acceptCookies()">Accept</button>
+        </div>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
