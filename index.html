@@ -27,11 +27,16 @@
             font-family: Arial, sans-serif;
             font-size: 15px;
             line-height: 1.5;
+            margin-top: 70px;
         }
 
-        /* Add custom CSS styles here */
-
-
+        .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+    }
 
         .card {
             margin-bottom: 10px;
@@ -255,9 +260,11 @@
             left: 0;
             right: 0;
             padding: 20px;
+
             background-color: #f1f1f1;
             text-align: center;
         }
+
         #cookie-popup button {
             background-color: #4CAF50;
             color: white;
@@ -266,6 +273,7 @@
             border-radius: 4px;
             cursor: pointer;
         }
+
         #back-to-top {
             position: fixed;
             bottom: 20px;
@@ -301,8 +309,8 @@
         }
         
     </style>
-     <script>
-        
+    <script>
+
         function acceptCookies() {
             document.cookie = "cookieConsent=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
             document.getElementById("cookie-popup").style.display = "none";
@@ -314,63 +322,66 @@
             }
         }
 
-        window.onload = checkCookies; 
+        window.onload = checkCookies;
 
         // Show the back-to-top button when the user scrolls down
-		window.onscroll = function() {
-			scrollFunction();
-		};
+        window.onscroll = function () {
+            scrollFunction();
+        };
 
-		function scrollFunction() {
-			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-				document.getElementById("back-to-top").style.display = "block";
-			} else {
-				document.getElementById("back-to-top").style.display = "none";
-			}
-		}
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("back-to-top").style.display = "block";
+            } else {
+                document.getElementById("back-to-top").style.display = "none";
+            }
+        }
 
-		// Scroll to the top of the page when the user clicks the button
-		function scrollToTop() {
-			document.body.scrollTop = 0;
-			document.documentElement.scrollTop = 0;
-		}
+        // Scroll to the top of the page when the user clicks the button
+        function scrollToTop() {
+            // Get the current vertical position of the scroll bar
+            let currentPosition = document.documentElement.scrollTop || document.body.scrollTop;
+
+            // If the current position is greater than 0, then scroll up using requestAnimationFrame
+            if (currentPosition > 0) {
+                window.requestAnimationFrame(scrollToTop);
+                window.scrollTo(0, currentPosition - currentPosition / 8);
+            }
+        }
 
     </script>
+
+    
 </head>
-
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- Navigation bar -->
+<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #3d5b79">
+    <a class="navbar-brand" href="/index.html"><img src="/images/banner.png" class="mr-4" alt="Image"></a> <button
+        class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="./">UNITED STATES</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="uk.html">UNITED KINGDOM</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Australia.html">AUSTRALIA</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Canada.html">CANADA</a>
+            </li>
+           
+        </ul>
+    </div>
+</nav>
 <body>
-
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <!-- Navigation bar -->
-    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #3d5b79">
-        <a class="navbar-brand" href="/index.html"><img src="/images/banner.png" class="mr-4" alt="Image"></a> <button
-            class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="./">UNITED STATES</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="uk.html">UNITED KINGDOM</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Australia.html">AUSTRALIA</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Canada.html">CANADA</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Switzerland.html">SWITZERLAND</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
 
     <!-- Jumbotron header -->
     <div class="home">
@@ -520,10 +531,7 @@
             </div>
         </div>
         </div>
-
         <div id="back-to-top" onclick="scrollToTop()"><i class="fa fa-angle-up"></i></div>
-        
-
         <div id="cookie-popup">
             <p>We use cookies to enhance your experience on our website. By continuing to use our website, you consent
                 to our use of cookies.</p>

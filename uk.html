@@ -8,8 +8,7 @@
         content="Find the latest scholarships for international students in the United States. Explore opportunities at top universities like University of Houston, Chapman University, University of Northern Colorado, and University of Michigan. Apply now for the 2023/24 academic year.">
 
 
-    <meta name="author"
-        content="University of Houston,University of Mississippi,University of Chapman,University of Colorado,Michigan">
+        <meta name="author" content="University of Houston,University of Mississippi,University of Chapman,University of Colorado,Michigan">
 
 
     <!-- Link to Bootstrap CSS file -->
@@ -25,14 +24,20 @@
 
 
     <style>
-        body {
+         body {
             font-family: Arial, sans-serif;
             font-size: 15px;
             line-height: 1.5;
+            margin-top: 70px;
         }
 
-        /* Add custom CSS styles here */
-
+        .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+    }
 
         .card {
             margin-bottom: 10px;
@@ -94,7 +99,7 @@
         }
 
         time {
-            font-size: 14px;
+            font-size: 12px;
             color: #999;
 
             font-variant-caps: all-petite-caps;
@@ -210,6 +215,10 @@
 
             }
 
+            .date {
+                font-size: 8px;
+            }
+
             .card-body2 p {
                 font-size: 14px;
                 color: black;
@@ -219,10 +228,30 @@
                 /* reduce font size for mobile devices */
             }
 
+            #backtotop {
+                bottom: 10px;
+                right: 10px;
+                width: 40px;
+                height: 40px;
+            }
+
+            .fa-angle-up {
+                font-size: 20px;
+            }
+
+            #backtotop.show {
+                display: block;
+            }
+
+
         }
 
         .aside {
             display: block;
+        }
+
+        .nav-item {
+            text-transform: capitalize;
         }
 
         #cookie-popup {
@@ -232,9 +261,11 @@
             left: 0;
             right: 0;
             padding: 20px;
+
             background-color: #f1f1f1;
             text-align: center;
         }
+
         #cookie-popup button {
             background-color: #4CAF50;
             color: white;
@@ -243,6 +274,7 @@
             border-radius: 4px;
             cursor: pointer;
         }
+
         #back-to-top {
             position: fixed;
             bottom: 20px;
@@ -276,10 +308,9 @@
             align-items: center;
             height: 100%;
         }
-        
     </style>
-     <script>
-        
+    <script>
+
         function acceptCookies() {
             document.cookie = "cookieConsent=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
             document.getElementById("cookie-popup").style.display = "none";
@@ -291,26 +322,32 @@
             }
         }
 
-        window.onload = checkCookies; 
+        window.onload = checkCookies;
 
         // Show the back-to-top button when the user scrolls down
-		window.onscroll = function() {
-			scrollFunction();
-		};
+        window.onscroll = function () {
+            scrollFunction();
+        };
 
-		function scrollFunction() {
-			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-				document.getElementById("back-to-top").style.display = "block";
-			} else {
-				document.getElementById("back-to-top").style.display = "none";
-			}
-		}
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("back-to-top").style.display = "block";
+            } else {
+                document.getElementById("back-to-top").style.display = "none";
+            }
+        }
 
-		// Scroll to the top of the page when the user clicks the button
-		function scrollToTop() {
-			document.body.scrollTop = 0;
-			document.documentElement.scrollTop = 0;
-		}
+        // Scroll to the top of the page when the user clicks the button
+        function scrollToTop() {
+            // Get the current vertical position of the scroll bar
+            let currentPosition = document.documentElement.scrollTop || document.body.scrollTop;
+
+            // If the current position is greater than 0, then scroll up using requestAnimationFrame
+            if (currentPosition > 0) {
+                window.requestAnimationFrame(scrollToTop);
+                window.scrollTo(0, currentPosition - currentPosition / 8);
+            }
+        }
 
     </script>
 </head>
@@ -331,10 +368,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">UNITED STATES</a>
+                    <a class="nav-link" href="./">UNITED STATES</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="./">UNITED KINGDOM</a>
+                    <a class="nav-link" href="uk.html">UNITED KINGDOM</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="Australia.html">AUSTRALIA</a>
@@ -342,16 +379,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="Canada.html">CANADA</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Switzerland.html">SWITZERLAND</a>
-                </li>
+               
             </ul>
         </div>
     </nav>
 
     <!-- Jumbotron header -->
     <div class="home">
-        <p><a class="hom" class="hom" href="uk.html">Home / </a>United Kingdom</p>
+        <p><a class="hom" class="hom" href="./">Home / </a>United Kingdom</p>
     </div>
     <main>
         <div class="container">
@@ -362,13 +397,12 @@
                         <h4 class="aside-nav-title">Scholarships in United Kingdom</h4>
                         <div class="card">
                             <div class="card-body d-flex align-items-center">
-                                <img src="/images/uk1.jpg" class="mr-3" alt="Image">
+                                <img src="/images/1.png" class="mr-3" alt="Image">
                                 <div>
                                     <time datetime="2023-04-12T15:30:00+05:30">April 12, 2023</time>
                                     <hr>
 
-                                    <a href="uk-desc1.html" class="scholarship-link">University of Liverpool
-                                        International Excellence Scholarships - UK: Apply Now!</a>
+                                    <a href="uk-desc1.html" class="scholarship-link">University of Liverpool International Excellence Scholarships - UK</a>
 
 
                                 </div>
@@ -376,12 +410,13 @@
                         </div>
                         <div class="card">
                             <div class="card-body d-flex align-items-center">
-                                <img src="/images/uk2.jpg" class="mr-3" alt="Image">
+                                <img src="/images/1.png" class="mr-3" alt="Image">
                                 <div>
                                     <time datetime="2023-04-12T15:30:00+05:30">April 12, 2023</time>
                                     <hr>
 
-                                    <a href="uk-desc2.html" class="scholarship-link">International Ambassador Scholarships at University of West London 2023/24: Apply Now!</a>
+                                    <a href="uk-desc2.html" class="scholarship-link">Financial Aid and Scholarships for
+                                        International Students at Chapman University in 2023</a>
 
 
                                 </div>
@@ -389,12 +424,13 @@
                         </div>
                         <div class="card">
                             <div class="card-body d-flex align-items-center">
-                                <img src="/images/uk3.png" class="mr-3" alt="Image">
+                                <img src="/images/1.png" class="mr-3" alt="Image">
                                 <div>
                                     <time datetime="2023-04-12T15:30:00+05:30">April 12, 2023</time>
                                     <hr>
 
-                                    <a href="uk-desc3.html" class="scholarship-link">Gates Cambridge Scholarships: An Opportunity for International Students to Pursue Higher Education in the UK</a>
+                                    <a href="uk-desc3.html" class="scholarship-link">International Scholarships for
+                                        First-Year Admission at University of Northern Colorado, USA</a>
 
 
                                 </div>
@@ -402,12 +438,13 @@
                         </div>
                         <div class="card">
                             <div class="card-body d-flex align-items-center">
-                                <img src="/images/uk4.jpg" class="mr-3" alt="Image">
+                                <img src="/images/1.png" class="mr-3" alt="Image">
                                 <div>
                                     <time datetime="2023-04-12T15:30:00+05:30">April 12, 2023</time>
                                     <hr>
 
-                                    <a href="uk-desc4.html" class="scholarship-link">University of Bedfordshire Scholarship for Undergraduate Students</a>
+                                    <a href="uk-desc4.html" class="scholarship-link">USA Scholarships for University of
+                                        Michigan 2022-2023</a>
 
 
                                 </div>
@@ -415,12 +452,13 @@
                         </div>
                         <div class="card">
                             <div class="card-body d-flex align-items-center">
-                                <img src="/images/uk5.jpg" class="mr-3" alt="Image">
+                                <img src="/images/1.png" class="mr-3" alt="Image">
                                 <div>
                                     <time datetime="2023-04-12T15:30:00+05:30">April 12, 2023</time>
                                     <hr>
 
-                                    <a href="uk-desc5.html" class="scholarship-link">London School of Hygiene & Tropical Medicine | LSHTM</a>
+                                    <a href="uk-desc5.html" class="scholarship-link">The University of Mississippi
+                                        International Students Scholarships 2023/24</a>
 
 
                                 </div>
@@ -494,13 +532,12 @@
         </div>
         </div>
         <div id="back-to-top" onclick="scrollToTop()"><i class="fa fa-angle-up"></i></div>
-        
-
         <div id="cookie-popup">
             <p>We use cookies to enhance your experience on our website. By continuing to use our website, you consent
                 to our use of cookies.</p>
             <button onclick="acceptCookies()">Accept</button>
         </div>
+
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

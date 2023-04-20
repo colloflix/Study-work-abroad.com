@@ -23,24 +23,28 @@
 
     <link rel="shortcut icon" type="image/png" href="/images/fa-icon.png">
 
-
     <style>
         body {
             font-family: Arial, sans-serif;
             font-size: 15px;
             line-height: 1.5;
+            margin-top: 70px;
         }
 
-        /* Add custom CSS styles here */
-
+        .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+    }
 
         .card {
             margin-bottom: 10px;
-            padding: 10px;
+            padding: 3px;
 
 
         }
-
 
         .card-img-top {
             max-height: 200px;
@@ -62,7 +66,7 @@
         }
 
         .aside-nav-title {
-            background-color: #007bff;
+            background-color: #3d5b79;
             color: #fff;
             font-size: 1.25rem;
             text-align: center;
@@ -95,7 +99,7 @@
         }
 
         time {
-            font-size: 14px;
+            font-size: 12px;
             color: #999;
 
             font-variant-caps: all-petite-caps;
@@ -155,7 +159,7 @@
         .card-body2 img {
             width: 100px;
             /* adjust size as needed */
-            height: 50px;
+            height: 70px;
 
 
 
@@ -178,35 +182,27 @@
             /* default font size */
         }
 
-        h1,
-        h2 {
-            font-size: 20px;
-        }
-
-        .article,
-        p,
-        li {
-
-            font-family: Helvetica Neue, Helvetica, Arial, sans-serif !important;
-        }
-
-
         .card-body a {
             font-size: 20px;
+
             /* default font size */
         }
 
+        h1, h2{
+                font-size: 25px; 
+                 color: black;
+            }
+
         @media (max-width: 767px) {
+            h1, h2{
+                font-size: 20px; 
+                 color: black;
+            }
 
             /* styles for devices with a maximum width of 767px, such as smartphones */
             .card-body img {
                 width: 100px;
                 height: 70px;
-            }
-
-            .desc {
-                font: optional;
-                font-size: 14px;
             }
 
             .card-body time {
@@ -215,7 +211,7 @@
             }
 
             .card-body a {
-                font-size: 15px;
+                font-size: 14px;
                 /* reduce font size for mobile devices */
             }
 
@@ -228,32 +224,142 @@
 
             }
 
+            .date {
+                font-size: 8px;
+            }
+
             .card-body2 p {
-                font-size: 15px;
-                color: #3d5b79;
+                font-size: 14px;
+                color: black;
+                text-decoration: underline;
+                font-weight: normal;
 
                 /* reduce font size for mobile devices */
             }
 
-            h1,
-            h2 {
+            #backtotop {
+                bottom: 10px;
+                right: 10px;
+                width: 40px;
+                height: 40px;
+            }
+
+            .fa-angle-up {
                 font-size: 20px;
             }
 
-            .article,
-            p,
-            li {
-
-                font-family: Helvetica Neue, Helvetica, Arial, sans-serif !important;
+            #backtotop.show {
+                display: block;
             }
 
-        }
 
+        }
 
         .aside {
             display: block;
         }
+
+        .nav-item {
+            text-transform: capitalize;
+        }
+
+        #cookie-popup {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+
+            background-color: #f1f1f1;
+            text-align: center;
+        }
+
+        #cookie-popup button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #3d5b79;
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            box-shadow: 0px 2px 5px rgba(124, 164, 202, 0.3);
+            cursor: pointer;
+            display: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99;
+        }
+
+        #back-to-top:hover {
+            background-color: #3d5b79;
+        }
+
+        .fa-angle-up {
+            font-size: 20px;
+        }
+
+        /* Position the up arrow in the center of the circle */
+        #back-to-top i {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        
     </style>
+    <script>
+
+        function acceptCookies() {
+            document.cookie = "cookieConsent=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+            document.getElementById("cookie-popup").style.display = "none";
+        }
+
+        function checkCookies() {
+            if (document.cookie.indexOf("cookieConsent=true") === -1) {
+                document.getElementById("cookie-popup").style.display = "block";
+            }
+        }
+
+        window.onload = checkCookies;
+
+        // Show the back-to-top button when the user scrolls down
+        window.onscroll = function () {
+            scrollFunction();
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("back-to-top").style.display = "block";
+            } else {
+                document.getElementById("back-to-top").style.display = "none";
+            }
+        }
+
+        // Scroll to the top of the page when the user clicks the button
+        function scrollToTop() {
+            // Get the current vertical position of the scroll bar
+            let currentPosition = document.documentElement.scrollTop || document.body.scrollTop;
+
+            // If the current position is greater than 0, then scroll up using requestAnimationFrame
+            if (currentPosition > 0) {
+                window.requestAnimationFrame(scrollToTop);
+                window.scrollTo(0, currentPosition - currentPosition / 8);
+            }
+        }
+
+    </script>
 </head>
 
 <body>
@@ -271,20 +377,20 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">UNITED STATES</a>
+                <li class="nav-item ">
+                    <a class="nav-link" href="./">United States</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="./">UNITED KINGDOM</a>
+                    <a class="nav-link" href="uk.html">United Kingdom</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Australia.html">AUSTRALIA</a>
+                    <a class="nav-link" href="Australia.html">Australia</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Canada.html">CANADA</a>
+                    <a class="nav-link" href="Canada.html">Canada</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Switzerland.html">SWITZERLAND</a>
+                    <a class="nav-link" href="Switzerland.html">Switzerland</a>
                 </li>
             </ul>
         </div>
@@ -292,7 +398,7 @@
 
     <!-- Jumbotron header -->
     <div class="home">
-        <p><a class="hom" class="hom" href="uk.html">Home / </a>United Kingdom / University of Liverpool</p>
+        <p><a class="hom" class="hom" href="./">Home / </a>United Kingdom / University of Liverpool</p>
     </div>
     <main>
         <div class="container">
@@ -318,7 +424,9 @@
                         <p>To apply for the University of Liverpool International Excellence Scholarships, applicants
                             must complete and submit the online scholarship application form by the scholarship
                             deadline.</p>
-                        <p>For more information about the scholarship criteria and application process, please visit the University of Liverpool International Scholarships official Webpage.</p>
+                        <p>For more information about the scholarship criteria and application process, please visit the
+                            <a href="https://www.liverpool.ac.uk/study/international/tuition-fees-and-scholarships/international-scholarships/"
+                                target="_blank">University of Liverpool International Scholarships</a> webpage.</p>
                     </article>
 
 
@@ -375,7 +483,12 @@
             </div>
         </div>
         </div>
-
+        <div id="back-to-top" onclick="scrollToTop()"><i class="fa fa-angle-up"></i></div>
+        <div id="cookie-popup">
+            <p>We use cookies to enhance your experience on our website. By continuing to use our website, you consent
+                to our use of cookies.</p>
+            <button onclick="acceptCookies()">Accept</button>
+        </div>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>

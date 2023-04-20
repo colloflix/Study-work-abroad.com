@@ -29,18 +29,23 @@
             font-family: Arial, sans-serif;
             font-size: 15px;
             line-height: 1.5;
+            margin-top: 70px;
         }
 
-        /* Add custom CSS styles here */
-
+        .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+    }
 
         .card {
             margin-bottom: 10px;
-            padding: 10px;
+            padding: 3px;
 
 
         }
-
 
         .card-img-top {
             max-height: 200px;
@@ -62,7 +67,7 @@
         }
 
         .aside-nav-title {
-            background-color: #007bff;
+            background-color: #3d5b79;
             color: #fff;
             font-size: 1.25rem;
             text-align: center;
@@ -95,7 +100,7 @@
         }
 
         time {
-            font-size: 14px;
+            font-size: 12px;
             color: #999;
 
             font-variant-caps: all-petite-caps;
@@ -155,7 +160,7 @@
         .card-body2 img {
             width: 100px;
             /* adjust size as needed */
-            height: 50px;
+            height: 70px;
 
 
 
@@ -178,35 +183,27 @@
             /* default font size */
         }
 
-        h1,
-        h2 {
-            font-size: 20px;
-        }
-
-        .article,
-        p,
-        li {
-
-            font-family: Helvetica Neue, Helvetica, Arial, sans-serif !important;
-        }
-
-
         .card-body a {
             font-size: 20px;
+
             /* default font size */
         }
 
+        h1, h2{
+                font-size: 25px; 
+                 color: black;
+            }
+
         @media (max-width: 767px) {
+            h1, h2{
+                font-size: 20px; 
+                 color: black;
+            }
 
             /* styles for devices with a maximum width of 767px, such as smartphones */
             .card-body img {
                 width: 100px;
                 height: 70px;
-            }
-
-            .desc {
-                font: optional;
-                font-size: 14px;
             }
 
             .card-body time {
@@ -215,7 +212,7 @@
             }
 
             .card-body a {
-                font-size: 15px;
+                font-size: 14px;
                 /* reduce font size for mobile devices */
             }
 
@@ -228,32 +225,142 @@
 
             }
 
+            .date {
+                font-size: 8px;
+            }
+
             .card-body2 p {
-                font-size: 15px;
-                color: #3d5b79;
+                font-size: 14px;
+                color: black;
+                text-decoration: underline;
+                font-weight: normal;
 
                 /* reduce font size for mobile devices */
             }
 
-            h1,
-            h2 {
+            #backtotop {
+                bottom: 10px;
+                right: 10px;
+                width: 40px;
+                height: 40px;
+            }
+
+            .fa-angle-up {
                 font-size: 20px;
             }
 
-            .article,
-            p,
-            li {
-
-                font-family: Helvetica Neue, Helvetica, Arial, sans-serif !important;
+            #backtotop.show {
+                display: block;
             }
 
-        }
 
+        }
 
         .aside {
             display: block;
         }
+
+        .nav-item {
+            text-transform: capitalize;
+        }
+
+        #cookie-popup {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+
+            background-color: #f1f1f1;
+            text-align: center;
+        }
+
+        #cookie-popup button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #3d5b79;
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            box-shadow: 0px 2px 5px rgba(124, 164, 202, 0.3);
+            cursor: pointer;
+            display: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99;
+        }
+
+        #back-to-top:hover {
+            background-color: #3d5b79;
+        }
+
+        .fa-angle-up {
+            font-size: 20px;
+        }
+
+        /* Position the up arrow in the center of the circle */
+        #back-to-top i {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        
     </style>
+    <script>
+
+        function acceptCookies() {
+            document.cookie = "cookieConsent=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+            document.getElementById("cookie-popup").style.display = "none";
+        }
+
+        function checkCookies() {
+            if (document.cookie.indexOf("cookieConsent=true") === -1) {
+                document.getElementById("cookie-popup").style.display = "block";
+            }
+        }
+
+        window.onload = checkCookies;
+
+        // Show the back-to-top button when the user scrolls down
+        window.onscroll = function () {
+            scrollFunction();
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("back-to-top").style.display = "block";
+            } else {
+                document.getElementById("back-to-top").style.display = "none";
+            }
+        }
+
+        // Scroll to the top of the page when the user clicks the button
+        function scrollToTop() {
+            // Get the current vertical position of the scroll bar
+            let currentPosition = document.documentElement.scrollTop || document.body.scrollTop;
+
+            // If the current position is greater than 0, then scroll up using requestAnimationFrame
+            if (currentPosition > 0) {
+                window.requestAnimationFrame(scrollToTop);
+                window.scrollTo(0, currentPosition - currentPosition / 8);
+            }
+        }
+
+    </script>
 </head>
 
 <body>
@@ -271,11 +378,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item ">
-                    <a class="nav-link" href="index.html">United States</a>
+                <li class="nav-item active">
+                    <a class="nav-link" href="./">United States</a>
                 </li>
-                <li class="nav-item active" >
-                    <a class="nav-link" href="./">United Kingdom</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="uk.html">United Kingdom</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="Australia.html">Australia</a>
@@ -292,37 +399,71 @@
 
     <!-- Jumbotron header -->
     <div class="home">
-        <p><a class="hom" class="hom" href="uk.html">Home / </a>United Kingdom / University of West London</p>
+        <p><a class="hom" class="hom" href="./">Home / </a>United States / University of Houston</p>
     </div>
     <main>
         <div class="container">
             <div class="row">
                 <div class="col-lg-9 col-md-8 col-sm-12">
-                    <h1>International Ambassador Scholarships at University of West London 2023/24: Apply Now!</h1>
+                    <h1>University of Houston International Merit Student Scholarship 2023, USA</h1>
 
                     <article class="card">
 
-                        <h1>International Ambassador Scholarships at University of West London</h1>
-                        <p>The University of West London is offering International Ambassador Scholarships to students who are interested in studying in the UK. These scholarships are designed to help international students pursue their academic goals and contribute to the international community at the university.</p>
-                      
-                        <h2>What are the International Ambassador Scholarships?</h2>
-                        <p>The International Ambassador Scholarships at the University of West London are designed to reward and encourage students who have demonstrated excellent academic achievement, and who can show that they will be positive and active members of the university's community.</p>
-                      
-                        <h2>Who is eligible for the scholarships?</h2>
-                        <p>The scholarships are open to all international students who have been offered a place to study a full-time undergraduate or postgraduate course at the University of West London.</p>
-                      
-                        <h2>What is the value of the scholarship?</h2>
-                        <p>The scholarship is worth up to £5,000, which will be applied as a discount to the first year of tuition fees.</p>
-                      
-                        <h2>How do I apply for the scholarship?</h2>
-                        <p>To apply for the scholarship, you will need to complete an online application form, which can be found on the university's website. You will need to provide information about your academic achievements, as well as information about your involvement in extracurricular activities and community service. You will also be asked to write a personal statement explaining why you believe you should be awarded the scholarship.</p>
-                      
-                        <h2>When is the application deadline?</h2>
-                        <p>The application deadline for the International Ambassador Scholarships is <strong>31 June 2023</strong>. Applications received after this date will not be considered.</p>
-                      
-                        <h2>Conclusion</h2>
-                        <p>The International Ambassador Scholarships at the University of West London are a great opportunity for international students who are looking to study in the UK. These scholarships provide financial support and recognition to students who have demonstrated excellent academic achievement, as well as a commitment to being active members of the university's community. If you are an international student who has been offered a place to study at the University of West London, we encourage you to apply for this scholarship and take advantage of this opportunity to achieve your academic goals.</p>
-                      
+                        <p>The University of Houston is a public research university located in Houston, Texas, United
+                            States. It was founded in 1927 and is the third-largest university in Texas with a student
+                            body of over 47,000 students.</p>
+                        <p>The institution provides a wide range of educational options to students, with more than 300
+                            programs available for both undergraduate and graduate studies. These programs span diverse
+                            disciplines such as business, engineering, education, law, nursing, and many more. It is
+                            designated as a Tier One research university by the Carnegie Foundation and is ranked among
+                            the top 100 public universities in the United States by U.S. News &amp; World Report.</p>
+                        <h2>About the scholarship:</h2>
+                        <ul>
+                            <li>Host University: University of Houston;</li>
+                            <li>Host Country: USA;</li>
+                            <li>Study Level: Bachelor, Masters;</li>
+                            <li>Scholarship Type: Partial Funding;</li>
+                            <li>Eligible Countries: International Students;</li>
+                            <li>Subjects: All Subjects;</li>
+                            <li>Application Deadline: 15 Jun 2023.</li>
+                        </ul>
+                        <p>The University of Houston International Merit Student Scholarship is a scholarship program
+                            that provides financial assistance to international students who have demonstrated academic
+                            excellence and outstanding achievement in extracurricular activities. The scholarship is
+                            awarded to new and current international students who are pursuing undergraduate or graduate
+                            degree programs at the University of Houston.</p>
+                        <p>The International Merit Scholarship is available to all undergraduate and graduate students.
+                            This scholarship can reduce the overall cost of attendance by $3,000 to $10,000 for two
+                            semesters. International students who hold F-1 and J-1 visas will receive the scholarship
+                            based on the residency tuition rate. However, the scholarship only covers tuition and fees
+                            and does not include other expenses such as housing, meals, transportation, personal
+                            expenses, books, supplies, and health insurance.</p>
+                        <p>The utilization of this scholarship is restricted to pursuing studies solely at UHV. This
+                            grant, along with the waivers, remains effective for full-time undergraduate and graduate
+                            courses during the fall, spring, and summer semesters at UHV. The scholarship also includes
+                            a $1,000 guaranteed scholarship for students who reside on-campus.</p>
+                    
+                        <h1>To be eligible for the International Merit Scholarship, students must:</h1>
+                        <ul>
+                            <li>Register for at least 12 credits as an undergraduate or at least 9 credits as a graduate
+                                student at UHV at the time of award.</li>
+                            <li>Have at least two semesters remaining to graduate, and the semester receiving the
+                                scholarship cannot be the final semester.</li>
+                            <li>Have a cumulative GPA of 2.5 or above as an undergraduate or 3.0 or above as a graduate
+                                student.</li>
+                            <li>Obtain approval for volunteer opportunities in advance.</li>
+                            <li>Meet the necessary visa status requirements.</li>
+                        </ul>
+                        <p>If awarded, the scholarship can only be used to study at UHV, and it includes a $1,000
+                            guaranteed scholarship for students living on-campus. The scholarship recipients must meet
+                            the specified conditions and requirements.</p>
+                        <h2>To apply for the scholarship, students must:</h2>
+                        <ul>
+                            <li>Complete the admission process to UHV.</li>
+                            <li>Meet specific conditions and requirements if a current or returning student.</li>
+                        </ul>
+                        <p>Apply now for the University of Houston International Merit Student Scholarship 2023 and
+                            fulfill your academic and career aspirations.</p>
                     </article>
 
 
@@ -379,7 +520,12 @@
             </div>
         </div>
         </div>
-
+        <div id="back-to-top" onclick="scrollToTop()"><i class="fa fa-angle-up"></i></div>
+        <div id="cookie-popup">
+            <p>We use cookies to enhance your experience on our website. By continuing to use our website, you consent
+                to our use of cookies.</p>
+            <button onclick="acceptCookies()">Accept</button>
+        </div>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>

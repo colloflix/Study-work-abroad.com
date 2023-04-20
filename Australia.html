@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta name="author"
+        content="Earn your Bachelor's degree in Business Administration online from a top-ranked program. Gain the knowledge and skills necessary to succeed in today's competitive business world. Learn from experienced faculty and network with industry leaders. Apply today.">
+
     <!-- Link to Bootstrap CSS file -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Bootstrap CSS -->
@@ -12,20 +15,26 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-DmJpvKKLOETH8g6t6XQjwsXcPk9WQTAhTzeL6i0rblDwM/15qOQr27E0XcVoN7Xt" crossorigin="anonymous">
-    
-    <head>
-        <title>Scholarships in Australia</title>
-        <link rel="shortcut icon" type="image/png" href="/images/fa-icon.png">
-    </head>
+
+    <title>Scholarships in Australia</title>
+    <link rel="shortcut icon" type="image/png" href="/images/fa-icon.png">
+
+
     <style>
         body {
             font-family: Arial, sans-serif;
             font-size: 15px;
             line-height: 1.5;
+            margin-top: 70px;
         }
 
-        /* Add custom CSS styles here */
-
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+        }
 
         .card {
             margin-bottom: 10px;
@@ -87,7 +96,7 @@
         }
 
         time {
-            font-size: 14px;
+            font-size: 12px;
             color: #999;
 
             font-variant-caps: all-petite-caps;
@@ -203,6 +212,10 @@
 
             }
 
+            .date {
+                font-size: 8px;
+            }
+
             .card-body2 p {
                 font-size: 14px;
                 color: black;
@@ -212,12 +225,128 @@
                 /* reduce font size for mobile devices */
             }
 
+            #backtotop {
+                bottom: 10px;
+                right: 10px;
+                width: 40px;
+                height: 40px;
+            }
+
+            .fa-angle-up {
+                font-size: 20px;
+            }
+
+            #backtotop.show {
+                display: block;
+            }
+
+
         }
 
         .aside {
             display: block;
         }
+
+        .nav-item {
+            text-transform: capitalize;
+        }
+
+        #cookie-popup {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+
+            background-color: #f1f1f1;
+            text-align: center;
+        }
+
+        #cookie-popup button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #3d5b79;
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            box-shadow: 0px 2px 5px rgba(124, 164, 202, 0.3);
+            cursor: pointer;
+            display: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99;
+        }
+
+        #back-to-top:hover {
+            background-color: #3d5b79;
+        }
+
+        .fa-angle-up {
+            font-size: 20px;
+        }
+
+        /* Position the up arrow in the center of the circle */
+        #back-to-top i {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
     </style>
+    <script>
+
+        function acceptCookies() {
+            document.cookie = "cookieConsent=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+            document.getElementById("cookie-popup").style.display = "none";
+        }
+
+        function checkCookies() {
+            if (document.cookie.indexOf("cookieConsent=true") === -1) {
+                document.getElementById("cookie-popup").style.display = "block";
+            }
+        }
+
+        window.onload = checkCookies;
+
+        // Show the back-to-top button when the user scrolls down
+        window.onscroll = function () {
+            scrollFunction();
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("back-to-top").style.display = "block";
+            } else {
+                document.getElementById("back-to-top").style.display = "none";
+            }
+        }
+
+        // Scroll to the top of the page when the user clicks the button
+        function scrollToTop() {
+            // Get the current vertical position of the scroll bar
+            let currentPosition = document.documentElement.scrollTop || document.body.scrollTop;
+
+            // If the current position is greater than 0, then scroll up using requestAnimationFrame
+            if (currentPosition > 0) {
+                window.requestAnimationFrame(scrollToTop);
+                window.scrollTo(0, currentPosition - currentPosition / 8);
+            }
+        }
+
+    </script>
 </head>
 
 <body>
@@ -228,35 +357,33 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <!-- Navigation bar -->
     <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #3d5b79">
-        <a class="navbar-brand" href="/index.html"><img src="/images/banner.png" class="mr-4" alt="Image"></a>        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        <a class="navbar-brand" href="/index.html"><img src="/images/banner.png" class="mr-4" alt="Image"></a> <button
+            class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="./">UNITED STATES</a>
+                    <a class="nav-link" href="index.html">UNITED STATES</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="uk.html">UNITED KINGDOM</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="Australia.html">AUSTRALIA</a>
+                    <a class="nav-link" href="./">AUSTRALIA</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="Canada.html">CANADA</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Switzerland.html">SWITZERLAND</a>
-                </li>
+
             </ul>
         </div>
     </nav>
 
     <!-- Jumbotron header -->
     <div class="home">
-        <p><a class="hom"  href="index.html">Home / </a>Australia</p>
+        <p><a class="hom" class="hom" href="Australia.html">Home / </a>Australia</p>
     </div>
     <main>
         <div class="container">
@@ -264,16 +391,16 @@
                 <div class="col-lg-9 col-md-8 col-sm-12">
 
                     <article>
-                        <h4 class="aside-nav-title">Scholarships in United States</h4>
+                        <h4 class="aside-nav-title">Scholarships in Australia</h4>
                         <div class="card">
                             <div class="card-body d-flex align-items-center">
-                                <img src="/images/1.png" class="mr-3" alt="Image">
+                                <img src="/images/houston.jpg" class="mr-3" alt="Image">
                                 <div>
                                     <time datetime="2023-04-12T15:30:00+05:30">April 12, 2023</time>
                                     <hr>
 
-                                    <a href="#" class="scholarship-link">Scholarships For
-                                        International Students In USA</a>
+                                    <a href="aust-desc1.html" class="scholarship-link">Scholarships at University of
+                                        Melbourne, Australia</a>
 
 
                                 </div>
@@ -281,13 +408,13 @@
                         </div>
                         <div class="card">
                             <div class="card-body d-flex align-items-center">
-                                <img src="/images/1.png" class="mr-3" alt="Image">
+                                <img src="/images/champman.jpg" class="mr-3" alt="Image">
                                 <div>
                                     <time datetime="2023-04-12T15:30:00+05:30">April 12, 2023</time>
                                     <hr>
 
-                                    <a href="#" class="scholarship-link">Scholarships For
-                                        International Students In USA</a>
+                                    <a href="aust-desc2.html" class="scholarship-link">Scholarship in Business
+                                        Information Systems at University of Sydney, Australia - Apply Now!</a>
 
 
                                 </div>
@@ -295,13 +422,13 @@
                         </div>
                         <div class="card">
                             <div class="card-body d-flex align-items-center">
-                                <img src="/images/1.png" class="mr-3" alt="Image">
+                                <img src="/images/colorado.jpg" class="mr-3" alt="Image">
                                 <div>
                                     <time datetime="2023-04-12T15:30:00+05:30">April 12, 2023</time>
                                     <hr>
 
-                                    <a href="#" class="scholarship-link">Scholarships For
-                                        International Students In USA</a>
+                                    <a href="aust-desc3.html" class="scholarship-link">University of Newcastle CIE
+                                        Program Scholarships for Australia 2023/2024</a>
 
 
                                 </div>
@@ -309,13 +436,13 @@
                         </div>
                         <div class="card">
                             <div class="card-body d-flex align-items-center">
-                                <img src="/images/1.png" class="mr-3" alt="Image">
+                                <img src="/images/michigan.jpg" class="mr-3" alt="Image">
                                 <div>
                                     <time datetime="2023-04-12T15:30:00+05:30">April 12, 2023</time>
                                     <hr>
 
-                                    <a href="#" class="scholarship-link">Scholarships For
-                                        International Students In USA</a>
+                                    <a href="aust-desc4.html" class="scholarship-link">Global Excellence Scholarship at
+                                        University of Western Australia</a>
 
 
                                 </div>
@@ -323,18 +450,19 @@
                         </div>
                         <div class="card">
                             <div class="card-body d-flex align-items-center">
-                                <img src="/images/1.png" class="mr-3" alt="Image">
+                                <img src="/images/misisipi.jpg" class="mr-3" alt="Image">
                                 <div>
                                     <time datetime="2023-04-12T15:30:00+05:30">April 12, 2023</time>
                                     <hr>
 
-                                    <a href="#" class="scholarship-link">Scholarships For
-                                        International Students In USA</a>
+                                    <a href="aust-desc5.html" class="scholarship-link">STEM Postgraduate Scholarship in
+                                        Australia - George Swinburne Scholarship</a>
 
 
                                 </div>
                             </div>
                         </div>
+                    </article>
 
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-12">
@@ -342,44 +470,56 @@
                         <h5 class="aside-nav-title">Recent Scholarships</h5>
                         <nav>
                             <div class="card">
-                            <div class="card-body2 d-flex align-items-center">
-                                <img src="/images/1.png" class="mr-3" alt="Image">
-                                <a href="https://www.example.com/scholarships-for-international-students-in-usa">
-                                    <p class="card-text">10 Most Affordable/Tuition Free Universities in USA</p>
-                                
-                                </a>
-                            </div>
-                        </div>
+                                <div class="card-body2 d-flex align-items-center">
+                                    <img src="/images/1.png" class="mr-3" alt="Image">
+                                    <div>
 
-                        <div class="card">
-                            <div class="card-body2 d-flex align-items-center">
-                                <img src="/images/1.png" class="mr-3" alt="Image">
-                                <a href="https://www.example.com/scholarships-for-international-students-in-usa">
-                                    <p class="card-text">10 Most Affordable/Tuition Free Universities in USA</p>
-                                
-                                </a>
-                            </div>
-                        </div>
+                                        <a href="usa-desc5.html" class="scholarship-link">Scholarships For
+                                            International Students In USA</a>
 
-                        <div class="card">
-                            <div class="card-body2 d-flex align-items-center">
-                                <img src="/images/1.png" class="mr-3" alt="Image">
-                                <a href="https://www.example.com/scholarships-for-international-students-in-usa">
-                                    <p class="card-text">10 Most Affordable/Tuition Free Universities in USA</p>
-                                
-                                </a>
-                            </div>
-                        </div>
 
-                        <div class="card">
-                            <div class="card-body2 d-flex align-items-center">
-                                <img src="/images/1.png" class="mr-3" alt="Image">
-                                <a href="https://www.example.com/scholarships-for-international-students-in-usa">
-                                    <p class="card-text">10 Most Affordable/Tuition Free Universities in USA</p>
-                                
-                                </a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+
+                            <div class="card">
+                                <div class="card-body2 d-flex align-items-center">
+                                    <img src="/images/1.png" class="mr-3" alt="Image">
+                                    <div>
+
+                                        <a href="usa-desc5.html" class="scholarship-link">Scholarships For
+                                            International Students In USA</a>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-body2 d-flex align-items-center">
+                                    <img src="/images/1.png" class="mr-3" alt="Image">
+                                    <div>
+
+                                        <a href="usa-desc5.html" class="scholarship-link">Scholarships For
+                                            International Students In USA</a>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-body2 d-flex align-items-center">
+                                    <img src="/images/1.png" class="mr-3" alt="Image">
+                                    <div>
+
+                                        <a href="usa-desc5.html" class="scholarship-link">Scholarships For
+                                            International Students In USA</a>
+
+
+                                    </div>
+                                </div>
+                            </div>
 
                         </nav>
                     </aside>
@@ -390,18 +530,26 @@
         </div>
         </div>
 
+        <div id="back-to-top" onclick="scrollToTop()"><i class="fa fa-angle-up"></i></div>
+
+
+        <div id="cookie-popup">
+            <p>We use cookies to enhance your experience on our website. By continuing to use our website, you consent
+                to our use of cookies.</p>
+            <button onclick="acceptCookies()">Accept</button>
+        </div>
+
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
-        
-        <footer class="bg-primary text-white py-3">
-           
+        <footer class="text-black py-3">
+
             <div class="container text-center mt-3">
-              <p class="mb-0">&copy; 2023 study-work-abroad. All rights reserved.</p>
+                <p class="mb-0">&copy; 2023 study-work-abroad. All rights reserved.</p>
             </div>
-          </footer>
+        </footer>
     </main>
 </body>
 
